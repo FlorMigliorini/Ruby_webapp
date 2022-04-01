@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<p>
+<strong>Title:</strong>
+<%= @course.title %>
+</p>
+<p>
+<strong>Rating:</strong>
+<%= @course.rating %>
+</p>
+<p>
+<strong>Release Date:</strong>
+<%= @course.release %>
+</p>
+<!-- Display the reviews of a course -->
+<h2>Reviews</h2>
+<% @course.reviews.each do |review| %>
+<p>
+<b>Review details:</b>
+<%= review.details %>
+</p>
+<% end %>
+<%= link_to 'Edit Course', edit_courses_path(@course) %> |
+<%= link_to 'Back', courses_path %> |
+<%= link_to 'Show Reviews', courses_reviews_path(@course) %>
+
+

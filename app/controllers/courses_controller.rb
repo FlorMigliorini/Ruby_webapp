@@ -3,7 +3,12 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
-    @courses = Course.all
+     #adding code for the search
+    if params[:title]
+      @courses = Course.where('title ILIKE ?', "%#{params[:title]}%")
+    else
+      @courses = Course.all
+    end  
   end
 
   # GET /courses/1 or /courses/1.json
@@ -22,6 +27,7 @@ class CoursesController < ApplicationController
   # POST /courses or /courses.json
   def create
     @course = Course.new(course_params)
+    @course.user_id = current_user.id
 
     respond_to do |format|
       if @course.save

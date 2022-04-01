@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
   def index
      #adding code for the search
     if params[:title]
-      @courses = Course.where('title ILIKE ?', "%#{params[:title]}%")
+      @courses = Course.where('title LIKE ?', "%#{params[:title]}%")
     else
       @courses = Course.all
     end  

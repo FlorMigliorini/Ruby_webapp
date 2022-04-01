@@ -24,6 +24,12 @@
             Videos
           <% end %>
         </li>
+        <li class="<%= 'active font-weight-bold' if current_page?(new_course_path) %> nav-item">
+         <%= link_to new_course_path, class: 'nav-link' do %>
+            <div class="fa fa-plus"></div>
+            New Course
+         <% end %>
+        </li>
       </ul>
       
       <div class="d-flex ms-auto order-5">

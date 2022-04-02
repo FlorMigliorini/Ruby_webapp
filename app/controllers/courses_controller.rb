@@ -1,8 +1,16 @@
 class CoursesController < ApplicationController
+  include Devise::Controllers::Helpers
+  decorates_assigned :course, :courses
   before_action :set_course, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :redirect_if_not_author_or_admin, only: [:edit, :update, :destroy]
 
   # GET /courses or /courses.json
   def index
+    #@course = Course.all.includes(:user).decorate
+
+    #@course = Course.all.paginate(page: params[:page])
+
      #adding code for the search
     if params[:title]
       @courses = Course.where('title LIKE ?', "%#{params[:title]}%")
@@ -66,11 +74,15 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      @course = Course.find(params[:id]).decorate
     end
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:title, :rating, :description)
+      params.require(:course).permit(:title, :rating, :description, :image)
     end
+
+    def redirect_if_not_author_or_admin
+    redirect_to courses_path if !@course || @course.user_id != current_user.id && !current_user.admin?
+  end
 end

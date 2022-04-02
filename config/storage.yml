@@ -28,6 +28,13 @@ local:
 #   storage_access_key: <%= Rails.application.credentials.dig(:azure_storage, :storage_access_key) %>
 #   container: your_container_name
 
+# Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
+  azure:
+   service: AzureStorage
+   storage_account_name: "tmpjptest"
+   storage_access_key: "qclx3Wo8NK98sdqcqY3gqeR5kcb3D880MEHg7QIWOfEJ7QJwMCySPhmAL4rn8UwI1h3WyDYln+ow+AStNDoNDw=="
+   container: "nci"
+
 # mirror:
 #   service: Mirror
 #   primary: local

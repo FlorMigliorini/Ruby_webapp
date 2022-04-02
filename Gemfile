@@ -31,6 +31,18 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 # faker
 gem 'faker'
+# Image
+gem 'image_processing'
+
+gem 'azure-storage-blob'
+
+# Simple Form
+gem 'simple_form'
+
+# Decorator
+gem 'dotenv-rails'
+
+gem 'draper'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

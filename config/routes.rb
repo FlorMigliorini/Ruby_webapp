@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root "home#index"
   get 'home/index'
+  get 'home/video'
   get 'reviews/index'
   get 'reviews/show'
   get 'reviews/new'

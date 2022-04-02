@@ -1,4 +1,5 @@
-<%= form_with(model: course) do |form| %>
+<div class="container">
+ <%= form_with(model: course) do |form| %>
   <% if course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -10,23 +11,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.text_field :rating %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    
+    <div class="form-inputs">
+      <%= form.label :title %>
+      <%= form.text_area :description %>
+      <%= form.rich_text_area :description %>
+      <%= form.file_field :image %>
+    </div>
+    <div class="form-actions">
+      <%= form.button :submit %>
+    </div>
+  <% end %>
+</div>

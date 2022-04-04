@@ -1,26 +1,8 @@
-<p id="notice"><%= notice %></p>
-<p>
-<strong>Title:</strong>
-<%= @course.title %>
-</p>
-<p>
-<strong>Rating:</strong>
-<%= @course.rating %>
-</p>
-<p>
-<strong>Release Date:</strong>
-<%= @course.release %>
-</p>
-<!-- Display the reviews of a course -->
-<h2>Reviews</h2>
-<% @course.reviews.each do |review| %>
-<p>
-<b>Review details:</b>
-<%= review.details %>
-</p>
+<h2><%= @review.content%> - <%= @review.user_id%></h2>
+
+<% if @review.user == current_user %>
+  <%= link_to "Edit Review", edit_review_path(@review)%>
 <% end %>
-<%= link_to 'Edit Course', edit_courses_path(@course) %> |
-<%= link_to 'Back', courses_path %> |
-<%= link_to 'Show Reviews', courses_reviews_path(@course) %>
 
 
+<h4>View the course here: <%= link_to @review.course.title, course_path(@review.course_id) %></h4>

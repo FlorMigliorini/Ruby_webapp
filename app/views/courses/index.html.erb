@@ -3,13 +3,13 @@
   Courses:
   <%= @courses.count %>
 </h1>
-<div class="card-columns">
+<div class="card-group">
   <% @courses.each do |course| %>
+  <%= course.test %>
     <%= render 'courses/course', course: course %>
-    <div>
-      <%#= course.display %>  <%#= course.adm_badge %> <%#= course.mod_badge %>
-    </div>
+
   <% end %>
+  
   <%#= will_paginate @course %>
 </div>
 <br/>

@@ -1,21 +1,10 @@
-<h1>Reviews in <%= @course.title %></h1>
-<table>
-<tr>
-<th>Review details</th>
-</tr>
-<% for review in @reviews %>
-<tr>
-<td><%= review.details %></td>
-<td><%= link_to 'Show', courses_review_path(@course, review)
-%></td>
-<td><%= link_to 'Edit', edit_courses_review_path(@course, review)
-%></td>
-<td><%= link_to 'Destroy', courses_review_path(@course, review),
-:confirm => 'Are you sure?', :method => :delete %></td>
-</tr>
+<h1><%= review_index_header %></h1>
+
+<ul>
+<% @reviews.each do |r|%>
+  <li><%= r.user.email %> says "<%= r.content%>" about this course: <strong><%= link_to r.course.title, course_path(r.course_id) %></strong> and gave it a rating of <%= r.rating %></li>
 <% end %>
-</table>
-<br />
-<%= link_to 'New review', new_courses_review_path(@course) %>
-<%= link_to 'Back to Course', @course %>
+</ul>
+
+<h4><%= link_to 'Back', course_path(@course), class: "btn btn-warning"  %></h4>
 

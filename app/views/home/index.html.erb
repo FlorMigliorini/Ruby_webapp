@@ -1,137 +1,57 @@
-<div class="container">
+<div class="container-fuid">
   <div class="container-fluid text-lg-center p-5 bg-light">
   <div class="display-4">
     Be Light Bee
     <div class="fas fa-lightbulb"></div>
+    <p class="lead">About BLB here</p>
   </div>
   <div class="p-4"></div>
- 
 </div>
-  <ul id="grid" class="clr">
-    <li>
-      <a href="#item1">
-        <div class="hexagon">
-          <img src="images/1.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item2">
-        <div class="hexagon">
-          <img src="images/2.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item3">
-        <div class="hexagon">
-          <img src="images/3.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item4">
-        <div class="hexagon">
-          <img src="images/4.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item5">
-        <div class="hexagon">
-          <img src="images/5.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item6">
-        <div class="hexagon">
-          <img src="images/6.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item7">
-        <div class="hexagon">
-          <img src="images/7.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item8">
-        <div class="hexagon">
-          <img src="images/8.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item9">
-        <div class="hexagon">
-          <img src="images/9.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item10">
-        <div class="hexagon">
-          <img src="images/10.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item11">
-        <div class="hexagon">
-          <img src="images/11.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item12">
-        <div class="hexagon">
-          <img src="images/12.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item13">
-        <div class="hexagon">
-          <img src="images/13.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item14">
-        <div class="hexagon">
-          <img src="images/14.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#item15">
-        <div class="hexagon">
-          <img src="images/15.jpg" alt="Lorem Ipsum"/>
-          <div class="overlay"></div>
-        </div>
-      </a>
-    </li>
-  </ul>
-   <form action="mail.php" method="post">
-                        <div class="card border-primary rounded-0">
-                            <div class="card-header p-0">
+ <br>
+  <div class="card-group">
+  <div class="card card-body">
+    <h1>
+      <div class="fa fa-graduation-cap"></div>
+    </h1>
+    <%= Course.count %>
+    online courses
+    <div class="row"></div>
+    Explore a variety of fresh topics
+  </div>
+  <div class="card card-body">
+    <h1>
+      <div class="fa fa-chalkboard-teacher"></div>
+      <!--.fa.fa-brain
+      -->
+    </h1>
+    <%= Course.distinct.count(:user_id) %>
+    expert instructors
+    <div class="row"></div>
+    Find the right instructor for you
+  </div>
+  <div class="card card-body">
+    <h1>
+      <div class="fa fa-user-graduate"></div>
+    </h1>
+    <%= User.count %>
+    active learners
+    <div class="row"></div>
+    Join the knowledge sharing community
+  </div>
+  <div class="card card-body">
+    <h1>
+      <div class="fa fa-infinity"></div>
+    </h1>
+    Lifetime access
+    <div class="row"></div>
+    Learn on your schedule
+  </div>
+</div>
+<br>
+<div class="container p-5">
+ <form action="mail.php" method="post">
+                        <div class="card border-warning rounded-0">
+                            <div class="card-header">
                                 <div class="bg-info text-white text-center py-2">
                                     <h3><i class="fa fa-envelope"></i> Contactanos</h3>
                                     <p class="m-0">Con gusto te ayudaremos</p>
@@ -173,6 +93,11 @@
 
                         </div>
                     </form>
+</div> 
 </div>
+
+<div clas="p-5"></div>
+<br>
+<br>
 
 

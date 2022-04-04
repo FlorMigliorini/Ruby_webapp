@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+  before_action :redirect_if_not_logged_in 
+  before_action :set_review, only: [:show, :edit, :update]
+  before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]
+
   def index
     # For URL like /courses/1/reviews
     # Get the course with id=1
@@ -63,4 +67,23 @@ class ReviewsController < ApplicationController
     format.html { redirect_to course_reviews_path(@course) }
     format.xml { head :ok }
   end
+
+  private 
+
+    def review_params
+        params.require(:review).permit(:content, :rating, :course_id)
+    end
+
+    def set_review
+        @review = Review.find_by(id: params[:id])
+        if !@review
+            flash[:message] = "Review was not found"
+            redirect_to reviews_path 
+        end
+    end
+
+    def redirect_if_not_authorized
+        redirect_to reviews_path if @review.user != current_user
+    end
+
 end
